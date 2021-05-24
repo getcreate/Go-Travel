@@ -1,1 +1,72 @@
 @import "../../styles/variables";
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: $btn-font-family;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  color: inherit;
+  text-align: center;
+  text-decoration: if($link-decoration == none, null, none);
+  white-space: $btn-white-space;
+  vertical-align: middle;
+  cursor: if($enable-button-pointers, pointer, null);
+  user-select: none;
+  background-color: transparent;
+  border: $btn-border-width solid transparent;
+  border-radius: $border-radius-pill;
+  padding: $btn-padding-y $btn-padding-x;
+  @include transition($btn-transition);
+
+  & > *:not(:last-child) {
+    margin-right: .75rem;
+  }
+
+  &:hover {
+    color: $primary-color;
+    text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+
+  .btn-check:focus + &,
+  &:focus {
+    outline: 0;
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  .btn-check:checked + &,
+  .btn-check:active + &,
+  &:active,
+  &.active {
+    @include box-shadow($btn-active-box-shadow);
+
+    &:focus {
+      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+  }
+
+  &:disabled,
+  &.disabled,
+  fieldset:disabled & {
+    pointer-events: none;
+    opacity: $btn-disabled-opacity;
+    @include box-shadow(none);
+  }
+
+  &__icon {
+    height: 0.9em;
+  }
+
+  &--primary {
+    background: $gradient;
+    font-size: 1.25rem;
+    color: $white;
+
+    &:hover {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.21), rgba(0, 0, 0, 0.21)), linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+      color: $white;
+    }
+
+    .btn__icon .icon {fill: $white}
+  }
+}

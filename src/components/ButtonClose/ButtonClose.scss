@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+
+.button-close {
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  padding: .5rem;
+  position: relative;
+  user-select: none;
+  border: none;
+  outline: none;
+
+  &:focus {
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  &:before,
+  &:after {
+    content: "";
+    width: calc(100% - .5rem);
+    height: .25rem;
+    display: block;
+    background-color: $primary-color;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  &:before {
+    transform: translate(-50%, -50%) rotate(45deg);
+    
+  }
+
+  &:after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

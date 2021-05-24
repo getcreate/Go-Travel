@@ -1,5 +1,10 @@
-.header {
+@import "../../styles/variables";
 
+.header {
+  width: 100%;
+  position: fixed;
+  padding-top: 5.5vh;
+  z-index: 10;
 
   &__inner {
     display: flex;
@@ -10,5 +15,22 @@
   &__logo {
     width: 47px;
     height: 47px;
+    fill: $white;
+  }
+}
+
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  &__link {
+    color: $white;
+    font-family: $font-headline;
+    font-size: 1.75rem;
+    margin-bottom: .25rem;
+  }
+
+  .link {
+    font-weight: 600;
   }
 }
